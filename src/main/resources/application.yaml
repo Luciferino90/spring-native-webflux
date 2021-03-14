@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: native-demo
+server:
+  port: 80

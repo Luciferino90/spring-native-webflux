@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: native-demo-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /helloworld
+            pathType: Prefix
+            backend:
+              service:
+                name: native-demo
+                port:
+                  number: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: native-demo-deployment
+  labels:
+    app: native-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: native-demo
+  template:
+    metadata:
+      labels:
+        app: native-demo
+    spec:
+      containers:
+        - name: native-demo
+          image: luciferino90/native-demo:0.0.3
+          ports:
+            - containerPort: 80
