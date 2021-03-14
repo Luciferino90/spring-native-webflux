@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>it.usuratonkachi</groupId>
 	<artifactId>native-demo</artifactId>
-	<version>0.0.4</version>
+	<version>0.0.5</version>
 	<name>native-demo</name>
 	<description>Demo project for Spring Boot Native</description>
 	<properties>

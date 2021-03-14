@@ -1,21 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: native-demo-deployment
-  labels:
-    app: native-demo
+  name: spring-native-webflux
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: native-demo
+      app: spring-native-webflux
   template:
     metadata:
       labels:
-        app: native-demo
+        app: spring-native-webflux
     spec:
+      terminationGracePeriodSeconds: 0
       containers:
-        - name: native-demo
-          image: luciferino90/native-demo:0.0.3
+        - name: api
+          image: okteto/spring-native-webflux:0.0.5
+          imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-native-webflux
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+  labels:
+    app: spring-native-webflux
+spec:
+  type: ClusterIP
+  ports:
+    - name: spring-native-webflux
+      port: 8080
+  selector:
+    app: spring-native-webflux
