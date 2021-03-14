@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>it.usuratonkachi</groupId>
-	<artifactId>native-demo</artifactId>
+	<artifactId>spring-native-webflux</artifactId>
 	<version>0.0.5</version>
-	<name>native-demo</name>
+	<name>spring-native-webflux</name>
 	<description>Demo project for Spring Boot Native</description>
 	<properties>
 		<java.version>11</java.version>
