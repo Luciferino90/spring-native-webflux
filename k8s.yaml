@@ -15,7 +15,7 @@ spec:
       terminationGracePeriodSeconds: 0
       containers:
         - name: api
-          image: luciferino90/spring-native-webflux:0.0.5
+          image: luciferino/spring-native-webflux:0.0.5
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
